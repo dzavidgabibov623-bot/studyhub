@@ -53,13 +53,13 @@ margin-top:20px;
 line-height:1.6;
 }
 
-/* chatbot */
+/* чат */
 
 #chatbot{
 position:fixed;
 bottom:90px;
 right:20px;
-width:340px;
+width:360px;
 background:#1e293b;
 border-radius:12px;
 display:none;
@@ -71,6 +71,7 @@ overflow:hidden;
 #chatHeader{
 background:#0f172a;
 padding:12px;
+font-weight:600;
 }
 
 #chatMessages{
@@ -120,7 +121,7 @@ cursor:pointer;
 <body>
 
 <h1>📚 StudyHub</h1>
-<p>Справочник для школьников: учеба, ресурсы, методы обучения.</p>
+<p>Справочник для школьников</p>
 
 <h2>📚 Учебники</h2>
 
@@ -132,13 +133,13 @@ cursor:pointer;
 <h2>📱 Приложения</h2>
 
 <div class="grid">
-<div class="card"><b>Anki</b><br>Интервальные повторения.</div>
-<div class="card"><b>Notion</b><br>Конспекты и планирование.</div>
-<div class="card"><b>Forest</b><br>Фокус во время учебы.</div>
-<div class="card"><b>Todoist</b><br>Менеджер задач.</div>
-<div class="card"><b>Quizlet</b><br>Карточки и тесты.</div>
-<div class="card"><b>OneNote</b><br>Цифровая тетрадь.</div>
-<div class="card"><b>Google Keep</b><br>Быстрые заметки.</div>
+<div class="card"><b>Anki</b><br>Интервальные повторения</div>
+<div class="card"><b>Notion</b><br>Конспекты и планирование</div>
+<div class="card"><b>Forest</b><br>Концентрация</div>
+<div class="card"><b>Todoist</b><br>Менеджер задач</div>
+<div class="card"><b>Quizlet</b><br>Карточки</div>
+<div class="card"><b>OneNote</b><br>Цифровая тетрадь</div>
+<div class="card"><b>Google Keep</b><br>Заметки</div>
 </div>
 
 <h2>🌐 Полезные сайты</h2>
@@ -159,63 +160,50 @@ cursor:pointer;
 
 <div id="guide">
 
-<h3>1. Как эффективно учиться</h3>
+<h3>Как эффективно учиться</h3>
 <ul>
-<li><b>Pomodoro:</b> 25 минут учебы + 5 минут отдыха.</li>
-<li><b>Active Recall:</b> проверяйте себя вопросами.</li>
-<li><b>Spaced Repetition:</b> повторяйте материал через интервалы.</li>
-<li>Объясняйте тему своими словами.</li>
+<li>Pomodoro — 25 минут учебы + 5 минут отдыха.</li>
+<li>Active Recall — проверяйте себя.</li>
+<li>Spaced Repetition — интервальные повторения.</li>
 </ul>
 
-<h3>2. Как использовать приложения</h3>
+<h3>Как использовать приложения</h3>
 <ul>
-<li>Anki — запоминание через карточки.</li>
-<li>Notion / OneNote — ведение конспектов.</li>
-<li>Todoist — планирование задач.</li>
-<li>Forest — концентрация без телефона.</li>
+<li>Anki — запоминание.</li>
+<li>Notion — конспекты.</li>
+<li>Todoist — планирование.</li>
+<li>Forest — концентрация.</li>
 </ul>
 
-<h3>3. Как работать с образовательными сайтами</h3>
-<ul>
-<li>Сначала изучайте теорию.</li>
-<li>Потом решайте задачи.</li>
-<li>Используйте несколько источников.</li>
-</ul>
-
-<h3>4. Подготовка к экзаменам</h3>
+<h3>Подготовка к экзаменам</h3>
 <ul>
 <li>Решайте много заданий.</li>
 <li>Разбирайте ошибки.</li>
 <li>Повторяйте темы по плану.</li>
 </ul>
 
-<h3>5. Организация времени</h3>
-<ul>
-<li>Составляйте список задач на день.</li>
-<li>Разделяйте сложные задачи на маленькие.</li>
-<li>Делайте регулярные перерывы.</li>
-</ul>
-
 </div>
 
-<!-- chatbot -->
+<!-- чат -->
 
 <div id="chatbot">
 
-<div id="chatHeader">🤖 StudyHelper</div>
+<div id="chatHeader">🤖 Study AI</div>
 
 <div id="chatMessages"></div>
 
 <div id="chatInput">
-<input id="userInput" placeholder="Спроси про учебу...">
-<button onclick="ask()">➤</button>
+<input id="userInput" placeholder="Спроси что-нибудь...">
+<button onclick="askAI()">➤</button>
 </div>
 
 </div>
 
 <button id="chatToggle">🤖</button>
 
-<script>
+<script type="module">
+
+import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm"
 
 const toggle=document.getElementById("chatToggle")
 const chat=document.getElementById("chatbot")
@@ -237,33 +225,40 @@ div.textContent=text
 document.getElementById("chatMessages").appendChild(div)
 }
 
-function ask(){
+add("Загрузка модели ИИ... подожди немного.","bot")
 
-let input=document.getElementById("userInput").value.toLowerCase()
+const engine = await CreateMLCEngine(
+"Llama-3-8B-Instruct-q4f32_1-MLC"
+)
 
-if(!input) return
+add("ИИ готов. Можешь задавать вопросы.","bot")
+
+async function askAI(){
+
+let input=document.getElementById("userInput").value
+
+if(!input)return
 
 add(input,"user")
 
 document.getElementById("userInput").value=""
 
-let answer="Я могу помочь с методами обучения, приложениями или подготовкой к экзаменам."
+const reply=await engine.chat.completions.create({
 
-if(input.includes("запомин"))
-answer="Используй интервальные повторения (Anki) и Active Recall."
+messages:[
+{role:"system",content:"Ты помощник для школьников. Объясняй темы просто."},
+{role:"user",content:input}
+]
 
-if(input.includes("экзам"))
-answer="Лучший способ подготовки — решать задания и анализировать ошибки."
+})
 
-if(input.includes("конспект"))
-answer="Используй Notion или OneNote и записывай материал своими словами."
+let text=reply.choices[0].message.content
 
-if(input.includes("концентрац"))
-answer="Метод Pomodoro и приложение Forest помогают концентрироваться."
-
-add(answer,"bot")
+add(text,"bot")
 
 }
+
+window.askAI=askAI
 
 </script>
 
