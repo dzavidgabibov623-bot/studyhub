@@ -6,152 +6,89 @@
 <title>StudyHub</title>
 
 <style>
-
 body{
-font-family:system-ui;
-background:#0f172a;
-color:white;
-margin:0;
-padding:40px;
+  font-family:system-ui;
+  background:#0f172a;
+  color:white;
+  margin:0;
+  padding:40px;
 }
 
 h1{font-size:36px}
+h2{margin-top:40px}
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:20px;
 }
 
 .card{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
 }
 
 a{
-color:#60a5fa;
-text-decoration:none;
+  color:#60a5fa;
+  text-decoration:none;
 }
 
 button{
-background:#2563eb;
-border:none;
-color:white;
-padding:10px 14px;
-border-radius:8px;
-cursor:pointer;
+  background:#2563eb;
+  border:none;
+  color:white;
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
 }
 
 #guide{
-display:none;
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-margin-top:20px;
-line-height:1.6;
+  display:none;
+  background:#1e293b;
+  padding:25px;
+  border-radius:12px;
+  margin-top:20px;
+  line-height:1.6;
 }
-
-/* чат */
-
-#chatbot{
-position:fixed;
-bottom:90px;
-right:20px;
-width:360px;
-background:#1e293b;
-border-radius:12px;
-display:none;
-flex-direction:column;
-box-shadow:0 20px 40px rgba(0,0,0,0.5);
-overflow:hidden;
-}
-
-#chatHeader{
-background:#0f172a;
-padding:12px;
-font-weight:600;
-}
-
-#chatMessages{
-height:260px;
-overflow-y:auto;
-padding:10px;
-font-size:14px;
-}
-
-.msgUser{color:#93c5fd;margin:6px 0}
-.msgBot{color:#e5e7eb;margin:6px 0}
-
-#chatInput{
-display:flex;
-}
-
-#chatInput input{
-flex:1;
-border:none;
-padding:10px;
-background:#0f172a;
-color:white;
-}
-
-#chatInput button{
-background:#2563eb;
-border:none;
-padding:10px;
-}
-
-#chatToggle{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#2563eb;
-border:none;
-color:white;
-font-size:20px;
-padding:14px;
-border-radius:50%;
-cursor:pointer;
-}
-
 </style>
 </head>
 
 <body>
 
 <h1>📚 StudyHub</h1>
-<p>Справочник для школьников</p>
+<p>Справочник для школьников: ресурсы, приложения и методы обучения.</p>
 
 <h2>📚 Учебники</h2>
 
 <div class="grid">
-<div class="card"><a href="https://11klasov.net" target="_blank">11klasov</a></div>
-<div class="card"><a href="https://media.prosv.ru" target="_blank">Просвещение</a></div>
+  <div class="card"><a href="https://11klasov.net" target="_blank">11klasov</a></div>
+  <div class="card"><a href="https://media.prosv.ru" target="_blank">Просвещение</a></div>
 </div>
 
-<h2>📱 Приложения</h2>
+<h2>📱 Приложения для учебы</h2>
 
 <div class="grid">
-<div class="card"><b>Anki</b><br>Интервальные повторения</div>
-<div class="card"><b>Notion</b><br>Конспекты и планирование</div>
-<div class="card"><b>Forest</b><br>Концентрация</div>
-<div class="card"><b>Todoist</b><br>Менеджер задач</div>
-<div class="card"><b>Quizlet</b><br>Карточки</div>
-<div class="card"><b>OneNote</b><br>Цифровая тетрадь</div>
-<div class="card"><b>Google Keep</b><br>Заметки</div>
+  <div class="card"><b>Anki</b><br>Интервальные повторения.</div>
+  <div class="card"><b>Notion</b><br>Конспекты и планирование.</div>
+  <div class="card"><b>Forest</b><br>Фокус во время учебы.</div>
+  <div class="card"><b>Todoist</b><br>Менеджер задач.</div>
+  <div class="card"><b>Quizlet</b><br>Карточки и тесты.</div>
+  <div class="card"><b>Microsoft OneNote</b><br>Цифровая тетрадь.</div>
+  <div class="card"><b>Google Keep</b><br>Заметки.</div>
 </div>
 
 <h2>🌐 Полезные сайты</h2>
 
 <div class="grid">
-<div class="card"><a href="https://interneturok.ru" target="_blank">InternetUrok</a></div>
-<div class="card"><a href="https://foxford.ru" target="_blank">Фоксфорд</a></div>
-<div class="card"><a href="https://yaklass.ru" target="_blank">ЯКласс</a></div>
-<div class="card"><a href="https://ege.sdamgia.ru" target="_blank">Решу ЕГЭ</a></div>
-<div class="card"><a href="https://postnauka.ru" target="_blank">ПостНаука</a></div>
-<div class="card"><a href="https://arzamas.academy" target="_blank">Arzamas</a></div>
-<div class="card"><a href="https://stepik.org" target="_blank">Stepik</a></div>
+  <div class="card"><a href="https://interneturok.ru" target="_blank">InternetUrok</a></div>
+  <div class="card"><a href="https://foxford.ru" target="_blank">Фоксфорд</a></div>
+  <div class="card"><a href="https://yaklass.ru" target="_blank">ЯКласс</a></div>
+  <div class="card"><a href="https://ege.sdamgia.ru" target="_blank">Решу ЕГЭ</a></div>
+  <div class="card"><a href="https://postnauka.ru" target="_blank">ПостНаука</a></div>
+  <div class="card"><a href="https://arzamas.academy" target="_blank">Arzamas</a></div>
+  <div class="card"><a href="https://stepik.org" target="_blank">Stepik</a></div>
 </div>
 
 <h2>🧠 Гайд по учебе</h2>
@@ -160,106 +97,50 @@ cursor:pointer;
 
 <div id="guide">
 
-<h3>Как эффективно учиться</h3>
+<h3>1. Основные методы обучения</h3>
 <ul>
-<li>Pomodoro — 25 минут учебы + 5 минут отдыха.</li>
-<li>Active Recall — проверяйте себя.</li>
-<li>Spaced Repetition — интервальные повторения.</li>
+<li><b>Pomodoro:</b> 25 минут учебы, затем 5 минут отдыха.</li>
+<li><b>Active Recall:</b> регулярно проверяйте себя вопросами.</li>
+<li><b>Spaced Repetition:</b> повторяйте материал через интервалы.</li>
+<li>Объясняйте тему своими словами.</li>
 </ul>
 
-<h3>Как использовать приложения</h3>
+<h3>2. Как использовать приложения</h3>
 <ul>
-<li>Anki — запоминание.</li>
-<li>Notion — конспекты.</li>
-<li>Todoist — планирование.</li>
-<li>Forest — концентрация.</li>
+<li>Anki — запоминание через карточки.</li>
+<li>Notion / OneNote — конспекты и организация знаний.</li>
+<li>Todoist — планирование задач.</li>
+<li>Forest — концентрация без отвлечений.</li>
 </ul>
 
-<h3>Подготовка к экзаменам</h3>
+<h3>3. Как работать с образовательными сайтами</h3>
+<ul>
+<li>Сначала изучайте теорию.</li>
+<li>Потом решайте задачи.</li>
+<li>Используйте несколько источников.</li>
+</ul>
+
+<h3>4. Подготовка к экзаменам</h3>
 <ul>
 <li>Решайте много заданий.</li>
 <li>Разбирайте ошибки.</li>
 <li>Повторяйте темы по плану.</li>
 </ul>
 
-</div>
-
-<!-- чат -->
-
-<div id="chatbot">
-
-<div id="chatHeader">🤖 Study AI</div>
-
-<div id="chatMessages"></div>
-
-<div id="chatInput">
-<input id="userInput" placeholder="Спроси что-нибудь...">
-<button onclick="askAI()">➤</button>
-</div>
+<h3>5. Организация времени</h3>
+<ul>
+<li>Составляйте список задач на день.</li>
+<li>Разделяйте сложные задачи на маленькие.</li>
+<li>Делайте регулярные перерывы.</li>
+</ul>
 
 </div>
 
-<button id="chatToggle">🤖</button>
-
-<script type="module">
-
-import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm"
-
-const toggle=document.getElementById("chatToggle")
-const chat=document.getElementById("chatbot")
-
-toggle.onclick=()=>{
-chat.style.display=chat.style.display==="flex"?"none":"flex"
-chat.style.flexDirection="column"
-}
-
+<script>
 function toggleGuide(){
-let g=document.getElementById("guide")
-g.style.display=g.style.display==="none"?"block":"none"
+  let g=document.getElementById("guide")
+  g.style.display=g.style.display==="none"?"block":"none"
 }
-
-function add(text,type){
-let div=document.createElement("div")
-div.className=type==="user"?"msgUser":"msgBot"
-div.textContent=text
-document.getElementById("chatMessages").appendChild(div)
-}
-
-add("Загрузка модели ИИ... подожди немного.","bot")
-
-const engine = await CreateMLCEngine(
-"Llama-3-8B-Instruct-q4f32_1-MLC"
-)
-
-add("ИИ готов. Можешь задавать вопросы.","bot")
-
-async function askAI(){
-
-let input=document.getElementById("userInput").value
-
-if(!input)return
-
-add(input,"user")
-
-document.getElementById("userInput").value=""
-
-const reply=await engine.chat.completions.create({
-
-messages:[
-{role:"system",content:"Ты помощник для школьников. Объясняй темы просто."},
-{role:"user",content:input}
-]
-
-})
-
-let text=reply.choices[0].message.content
-
-add(text,"bot")
-
-}
-
-window.askAI=askAI
-
 </script>
 
 </body>
