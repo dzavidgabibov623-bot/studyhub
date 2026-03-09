@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyHub — Справочник школьника</title>
+
+<style>
+
+body{
+font-family: system-ui, sans-serif;
+margin:0;
+background:#0f172a;
+color:white;
+}
+
+header{
+padding:40px;
+text-align:center;
+background:#1e293b;
+}
+
+h1{
+margin:0;
+font-size:36px;
+}
+
+.search{
+margin-top:20px;
+}
+
+input{
+padding:12px;
+width:300px;
+border-radius:8px;
+border:none;
+font-size:16px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.section{
+margin-bottom:60px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+transition:.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+background:#334155;
+}
+
+.card a{
+color:#60a5fa;
+text-decoration:none;
+}
+
+.tag{
+font-size:12px;
+opacity:.7;
+margin-bottom:8px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#1e293b;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>📚 StudyHub</h1>
+<p>Справочник для эффективной учебы</p>
+
+<div class="search">
+<input type="text" id="search" placeholder="Поиск ресурсов...">
+</div>
+
+</header>
+
+<div class="container">
+
+<section class="section">
+<h2>📖 Книги</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="tag">книга</div>
+<b>Deep Work</b><br>
+<a href="https://www.goodreads.com/book/show/25744928-deep-work" target="_blank">Открыть</a>
+</div>
+
+<div class="card">
+<div class="tag">книга</div>
+<b>Make It Stick</b><br>
+<a href="https://www.goodreads.com/book/show/18770267-make-it-stick" target="_blank">Открыть</a>
+</div>
+
+<div class="card">
+<div class="tag">книга</div>
+<b>Peak</b><br>
+<a href="https://www.goodreads.com/book/show/26312997-peak" target="_blank">Открыть</a>
+</div>
+
+</div>
+</section>
+
+
+<section class="section">
+<h2>📱 Приложения</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="tag">app</div>
+<b>Anki</b>
+<p>Интервальные повторения</p>
+<a href="https://apps.ankiweb.net/">Скачать</a>
+</div>
+
+<div class="card">
+<div class="tag">app</div>
+<b>Notion</b>
+<p>Планирование учебы</p>
+<a href="https://notion.so">Открыть</a>
+</div>
+
+<div class="card">
+<div class="tag">app</div>
+<b>Forest</b>
+<p>Фокус без телефона</p>
+<a href="https://forestapp.cc">Открыть</a>
+</div>
+
+</div>
+</section>
+
+
+<section class="section">
+<h2>🌐 Полезные сайты</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="tag">site</div>
+<b>Khan Academy</b>
+<p>Бесплатные курсы</p>
+<a href="https://khanacademy.org">Перейти</a>
+</div>
+
+<div class="card">
+<div class="tag">site</div>
+<b>Coursera</b>
+<p>Университетские курсы</p>
+<a href="https://coursera.org">Перейти</a>
+</div>
+
+<div class="card">
+<div class="tag">site</div>
+<b>WolframAlpha</b>
+<p>Решение задач</p>
+<a href="https://wolframalpha.com">Перейти</a>
+</div>
+
+</div>
+</section>
+
+
+<section class="section">
+<h2>🧠 Гайды по учебе</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="tag">guide</div>
+<b>Pomodoro</b>
+<p>25 минут работы / 5 отдых</p>
+</div>
+
+<div class="card">
+<div class="tag">guide</div>
+<b>Active Recall</b>
+<p>Активное вспоминание</p>
+</div>
+
+<div class="card">
+<div class="tag">guide</div>
+<b>Spaced Repetition</b>
+<p>Интервальные повторения</p>
+</div>
+
+</div>
+</section>
+
+</div>
+
+<footer>
+StudyHub • справочник школьника
+</footer>
+
+
+<script>
+
+const search = document.getElementById("search");
+
+search.addEventListener("input", function(){
+
+const value = this.value.toLowerCase();
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+card.style.display =
+card.innerText.toLowerCase().includes(value)
+? "block"
+: "none";
+});
+
+});
+
+</script>
+
+</body>
+</html>
