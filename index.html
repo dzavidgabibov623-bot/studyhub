@@ -6,6 +6,7 @@
 <title>StudyHub</title>
 
 <style>
+
 body{
 font-family:system-ui;
 background:#0f172a;
@@ -43,17 +44,16 @@ border-radius:8px;
 cursor:pointer;
 }
 
-/* guide */
-
 #guide{
 display:none;
 background:#1e293b;
-padding:20px;
+padding:25px;
 border-radius:12px;
 margin-top:20px;
+line-height:1.6;
 }
 
-/* chat */
+/* chatbot */
 
 #chatbot{
 position:fixed;
@@ -74,7 +74,7 @@ padding:12px;
 }
 
 #chatMessages{
-height:280px;
+height:260px;
 overflow-y:auto;
 padding:10px;
 font-size:14px;
@@ -113,32 +113,32 @@ padding:14px;
 border-radius:50%;
 cursor:pointer;
 }
+
 </style>
 </head>
 
 <body>
 
 <h1>📚 StudyHub</h1>
-<p>Справочник для школьников</p>
+<p>Справочник для школьников: учеба, ресурсы, методы обучения.</p>
 
 <h2>📚 Учебники</h2>
 
 <div class="grid">
 <div class="card"><a href="https://11klasov.net" target="_blank">11klasov</a></div>
-<div class="card"><a href="https://11klasov.net" target="_blank">11klasov зеркало</a></div>
 <div class="card"><a href="https://media.prosv.ru" target="_blank">Просвещение</a></div>
 </div>
 
 <h2>📱 Приложения</h2>
 
 <div class="grid">
-<div class="card"><b>Anki</b><br>Интервальные повторения</div>
-<div class="card"><b>Notion</b><br>Конспекты и планирование</div>
-<div class="card"><b>Forest</b><br>Концентрация</div>
-<div class="card"><b>Todoist</b><br>Менеджер задач</div>
-<div class="card"><b>Quizlet</b><br>Карточки</div>
-<div class="card"><b>Microsoft OneNote</b><br>Цифровая тетрадь</div>
-<div class="card"><b>Google Keep</b><br>Заметки</div>
+<div class="card"><b>Anki</b><br>Интервальные повторения.</div>
+<div class="card"><b>Notion</b><br>Конспекты и планирование.</div>
+<div class="card"><b>Forest</b><br>Фокус во время учебы.</div>
+<div class="card"><b>Todoist</b><br>Менеджер задач.</div>
+<div class="card"><b>Quizlet</b><br>Карточки и тесты.</div>
+<div class="card"><b>OneNote</b><br>Цифровая тетрадь.</div>
+<div class="card"><b>Google Keep</b><br>Быстрые заметки.</div>
 </div>
 
 <h2>🌐 Полезные сайты</h2>
@@ -153,35 +153,47 @@ cursor:pointer;
 <div class="card"><a href="https://stepik.org" target="_blank">Stepik</a></div>
 </div>
 
-<h2>🧠 Гайды</h2>
+<h2>🧠 Гайд по учебе</h2>
 
 <button onclick="toggleGuide()">Открыть гайд</button>
 
 <div id="guide">
 
-<h3>Как использовать сайты</h3>
-
+<h3>1. Как эффективно учиться</h3>
 <ul>
-<li>InternetUrok — изучение теории</li>
-<li>ЯКласс — тренировка задач</li>
-<li>Решу ЕГЭ — подготовка к экзаменам</li>
+<li><b>Pomodoro:</b> 25 минут учебы + 5 минут отдыха.</li>
+<li><b>Active Recall:</b> проверяйте себя вопросами.</li>
+<li><b>Spaced Repetition:</b> повторяйте материал через интервалы.</li>
+<li>Объясняйте тему своими словами.</li>
 </ul>
 
-<h3>Как использовать приложения</h3>
-
+<h3>2. Как использовать приложения</h3>
 <ul>
-<li>Anki — запоминание</li>
-<li>Notion — конспекты</li>
-<li>Todoist — планирование</li>
-<li>Forest — концентрация</li>
+<li>Anki — запоминание через карточки.</li>
+<li>Notion / OneNote — ведение конспектов.</li>
+<li>Todoist — планирование задач.</li>
+<li>Forest — концентрация без телефона.</li>
 </ul>
 
-<h3>Методы обучения</h3>
-
+<h3>3. Как работать с образовательными сайтами</h3>
 <ul>
-<li>Pomodoro</li>
-<li>Active Recall</li>
-<li>Spaced Repetition</li>
+<li>Сначала изучайте теорию.</li>
+<li>Потом решайте задачи.</li>
+<li>Используйте несколько источников.</li>
+</ul>
+
+<h3>4. Подготовка к экзаменам</h3>
+<ul>
+<li>Решайте много заданий.</li>
+<li>Разбирайте ошибки.</li>
+<li>Повторяйте темы по плану.</li>
+</ul>
+
+<h3>5. Организация времени</h3>
+<ul>
+<li>Составляйте список задач на день.</li>
+<li>Разделяйте сложные задачи на маленькие.</li>
+<li>Делайте регулярные перерывы.</li>
 </ul>
 
 </div>
@@ -190,15 +202,13 @@ cursor:pointer;
 
 <div id="chatbot">
 
-<div id="chatHeader">
-🤖 StudyBot (DeepSeek)
-</div>
+<div id="chatHeader">🤖 StudyHelper</div>
 
 <div id="chatMessages"></div>
 
 <div id="chatInput">
-<input id="userInput" placeholder="Спроси что-нибудь...">
-<button onclick="askAI()">➤</button>
+<input id="userInput" placeholder="Спроси про учебу...">
+<button onclick="ask()">➤</button>
 </div>
 
 </div>
@@ -220,61 +230,38 @@ let g=document.getElementById("guide")
 g.style.display=g.style.display==="none"?"block":"none"
 }
 
-function addMessage(text,type){
-
+function add(text,type){
 let div=document.createElement("div")
-
 div.className=type==="user"?"msgUser":"msgBot"
-
 div.textContent=text
-
 document.getElementById("chatMessages").appendChild(div)
-
 }
 
-async function askAI(){
+function ask(){
 
-let input=document.getElementById("userInput").value
+let input=document.getElementById("userInput").value.toLowerCase()
 
-if(!input)return
+if(!input) return
 
-addMessage(input,"user")
+add(input,"user")
 
 document.getElementById("userInput").value=""
 
-let response=await fetch("https://openrouter.ai/api/v1/chat/completions",{
+let answer="Я могу помочь с методами обучения, приложениями или подготовкой к экзаменам."
 
-method:"POST",
+if(input.includes("запомин"))
+answer="Используй интервальные повторения (Anki) и Active Recall."
 
-headers:{
-"Authorization":"Bearer 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",
-"Content-Type":"application/json"
-},
+if(input.includes("экзам"))
+answer="Лучший способ подготовки — решать задания и анализировать ошибки."
 
-body:JSON.stringify({
+if(input.includes("конспект"))
+answer="Используй Notion или OneNote и записывай материал своими словами."
 
-model:"deepseek/deepseek-chat",
+if(input.includes("концентрац"))
+answer="Метод Pomodoro и приложение Forest помогают концентрироваться."
 
-messages:[
-{
-role:"system",
-content:"Ты помощник для школьников. Объясняй темы просто."
-},
-{
-role:"user",
-content:input
-}
-]
-
-})
-
-})
-
-let data=await response.json()
-
-let answer=data.choices[0].message.content
-
-addMessage(answer,"bot")
+add(answer,"bot")
 
 }
 
