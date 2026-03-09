@@ -2,11 +2,10 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>StudyHub — справочник школьника</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyHub</title>
 
 <style>
-
 body{
 font-family:system-ui;
 background:#0f172a;
@@ -15,12 +14,11 @@ margin:0;
 padding:40px;
 }
 
-h1{font-size:34px}
-h2{margin-top:60px}
+h1{font-size:36px}
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
 margin-top:20px;
 }
@@ -29,11 +27,6 @@ margin-top:20px;
 background:#1e293b;
 padding:20px;
 border-radius:12px;
-transition:0.2s;
-}
-
-.card:hover{
-transform:translateY(-4px);
 }
 
 a{
@@ -41,7 +34,26 @@ color:#60a5fa;
 text-decoration:none;
 }
 
-/* CHAT */
+button{
+background:#2563eb;
+border:none;
+color:white;
+padding:10px 14px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* guide */
+
+#guide{
+display:none;
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+}
+
+/* chat */
 
 #chatbot{
 position:fixed;
@@ -59,11 +71,10 @@ overflow:hidden;
 #chatHeader{
 background:#0f172a;
 padding:12px;
-font-weight:600;
 }
 
 #chatMessages{
-height:300px;
+height:280px;
 overflow-y:auto;
 padding:10px;
 font-size:14px;
@@ -87,9 +98,7 @@ color:white;
 #chatInput button{
 background:#2563eb;
 border:none;
-color:white;
-padding:10px 14px;
-cursor:pointer;
+padding:10px;
 }
 
 #chatToggle{
@@ -99,38 +108,42 @@ right:20px;
 background:#2563eb;
 border:none;
 color:white;
-font-size:22px;
+font-size:20px;
 padding:14px;
 border-radius:50%;
 cursor:pointer;
 }
-
 </style>
 </head>
 
 <body>
 
 <h1>📚 StudyHub</h1>
-<p>Справочник для школьников: учебники, приложения и полезные ресурсы.</p>
+<p>Справочник для школьников</p>
+
+<h2>📚 Учебники</h2>
+
+<div class="grid">
+<div class="card"><a href="https://11klasov.net" target="_blank">11klasov</a></div>
+<div class="card"><a href="https://11klasov.net" target="_blank">11klasov зеркало</a></div>
+<div class="card"><a href="https://media.prosv.ru" target="_blank">Просвещение</a></div>
+</div>
 
 <h2>📱 Приложения</h2>
 
 <div class="grid">
-
-<div class="card"><b>Anki</b><br>Интервальные повторения.</div>
-<div class="card"><b>Notion</b><br>Конспекты и планирование.</div>
-<div class="card"><b>Forest</b><br>Концентрация во время учёбы.</div>
-<div class="card"><b>Todoist</b><br>Менеджер задач.</div>
-<div class="card"><b>Quizlet</b><br>Карточки и тесты.</div>
-<div class="card"><b>Microsoft OneNote</b><br>Цифровая тетрадь.</div>
-<div class="card"><b>Google Keep</b><br>Заметки и списки.</div>
-
+<div class="card"><b>Anki</b><br>Интервальные повторения</div>
+<div class="card"><b>Notion</b><br>Конспекты и планирование</div>
+<div class="card"><b>Forest</b><br>Концентрация</div>
+<div class="card"><b>Todoist</b><br>Менеджер задач</div>
+<div class="card"><b>Quizlet</b><br>Карточки</div>
+<div class="card"><b>Microsoft OneNote</b><br>Цифровая тетрадь</div>
+<div class="card"><b>Google Keep</b><br>Заметки</div>
 </div>
 
 <h2>🌐 Полезные сайты</h2>
 
 <div class="grid">
-
 <div class="card"><a href="https://interneturok.ru" target="_blank">InternetUrok</a></div>
 <div class="card"><a href="https://foxford.ru" target="_blank">Фоксфорд</a></div>
 <div class="card"><a href="https://yaklass.ru" target="_blank">ЯКласс</a></div>
@@ -138,32 +151,53 @@ cursor:pointer;
 <div class="card"><a href="https://postnauka.ru" target="_blank">ПостНаука</a></div>
 <div class="card"><a href="https://arzamas.academy" target="_blank">Arzamas</a></div>
 <div class="card"><a href="https://stepik.org" target="_blank">Stepik</a></div>
+</div>
+
+<h2>🧠 Гайды</h2>
+
+<button onclick="toggleGuide()">Открыть гайд</button>
+
+<div id="guide">
+
+<h3>Как использовать сайты</h3>
+
+<ul>
+<li>InternetUrok — изучение теории</li>
+<li>ЯКласс — тренировка задач</li>
+<li>Решу ЕГЭ — подготовка к экзаменам</li>
+</ul>
+
+<h3>Как использовать приложения</h3>
+
+<ul>
+<li>Anki — запоминание</li>
+<li>Notion — конспекты</li>
+<li>Todoist — планирование</li>
+<li>Forest — концентрация</li>
+</ul>
+
+<h3>Методы обучения</h3>
+
+<ul>
+<li>Pomodoro</li>
+<li>Active Recall</li>
+<li>Spaced Repetition</li>
+</ul>
 
 </div>
 
-<h2>📚 Учебники</h2>
-
-<div class="grid">
-
-<div class="card"><a href="https://11klasov.net" target="_blank">11klasov</a></div>
-<div class="card"><a href="https://11klasov.net" target="_blank">11klasov зеркало</a></div>
-<div class="card"><a href="https://media.prosv.ru" target="_blank">Просвещение</a></div>
-
-</div>
-
-
-<!-- CHAT -->
+<!-- chatbot -->
 
 <div id="chatbot">
 
 <div id="chatHeader">
-🤖 StudyBot
+🤖 StudyBot (DeepSeek)
 </div>
 
 <div id="chatMessages"></div>
 
 <div id="chatInput">
-<input id="userInput" placeholder="Спроси про учебу...">
+<input id="userInput" placeholder="Спроси что-нибудь...">
 <button onclick="askAI()">➤</button>
 </div>
 
@@ -179,6 +213,11 @@ const chat=document.getElementById("chatbot")
 toggle.onclick=()=>{
 chat.style.display=chat.style.display==="flex"?"none":"flex"
 chat.style.flexDirection="column"
+}
+
+function toggleGuide(){
+let g=document.getElementById("guide")
+g.style.display=g.style.display==="none"?"block":"none"
 }
 
 function addMessage(text,type){
@@ -208,18 +247,18 @@ let response=await fetch("https://openrouter.ai/api/v1/chat/completions",{
 method:"POST",
 
 headers:{
-"Authorization":"Bearer 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",
+"Authorization":"Bearer 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",
 "Content-Type":"application/json"
 },
 
 body:JSON.stringify({
 
-model:"mistralai/mistral-7b-instruct",
+model:"deepseek/deepseek-chat",
 
 messages:[
 {
 role:"system",
-content:"Ты помощник для школьников. Помогаешь с учебой, экзаменами и приложениями."
+content:"Ты помощник для школьников. Объясняй темы просто."
 },
 {
 role:"user",
